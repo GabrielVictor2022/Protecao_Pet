@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Risco</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Mapa de Risco de Abandono de Animais</h1>
+    <div id="map" style="height: 500px;"></div>
+    <h2>Denúncias por Bairro</h2>
+    <canvas id="graficoDenuncias" width="400" height="200"></canvas>
+
+    <script>
+        // Inicializa o mapa
+        const map = L.map('map').setView([-8.0476, -34.8770], 12);
+
+        // Adiciona o tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Recebe os dados do Flask como JSON
+        const bairros = {{ data | tojson | safe }};
+        const graficoDados = {{ grafico_dados | tojson | safe }};
+
+        // Adiciona os marcadores no mapa
+        bairros.forEach((bairro) => {
+            L.marker([bairro.lat, bairro.lng])
+                .addTo(map)
+                .bindPopup(`${bairro.bairro}: ${bairro.risco} Risco`);
+        });
+
+        // Dados para o gráfico de denúncias
+        const labels = graficoDados.map(item => item.bairro);
+        const data = graficoDados.map(item => item.denuncias);
+
+        // Configuração do gráfico usando Chart.js
+        const ctx = document.getElementById('graficoDenuncias').getContext('2d');
+        new Chart(ctx, {
+            
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Número de Denúncias',
+                    data: data,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        
+    </script>
+</body>
+</html>

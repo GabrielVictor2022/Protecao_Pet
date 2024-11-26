@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconhecer Animal</title>
+</head>
+<body>
+    <h1>Reconhecimento de Animais</h1>
+
+    <form action="/recognize" method="post" enctype="multipart/form-data">
+        <label for="image">Selecione uma imagem:</label>
+        <input type="file" name="image" id="image" accept="image/*">
+        <button type="submit">Enviar</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if result %}
+        <h2>Resultado da Análise:</h2>
+        <p><strong>Animal:</strong> {{ result['animal'] }}</p>
+        <p><strong>Características:</strong></p>
+        <ul>
+            <li>Cor: {{ result['caracteristicas']['cor'] }}</li>
+            <li>Tamanho: {{ result['caracteristicas']['tamanho'] }}</li>
+            <li>Raça: {{ result['caracteristicas']['raça'] }}</li>
+        </ul>
+    {% endif %}
+</body>
+</html>

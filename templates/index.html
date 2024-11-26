@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Proteção Pet</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Classificação de Risco de Abandono</h1>
+    <canvas id="riskChart" width="400" height="200"></canvas>
+    <script>
+        const ctx = document.getElementById('riskChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Boa Viagem", "Casa Amarela", "Tamarineira", "Ibura"],
+                datasets: [{
+                    label: 'Denúncias',
+                    data: [20, 60, 30, 80],
+                    backgroundColor: ['green', 'red', 'orange', 'red']
+                }]
+            }
+        });
+    </script>
+    <a href="/map">Ver Mapa</a>
+    <a href="/recognize">Reconhecer cachorro</a>
+</body>
+</html>
