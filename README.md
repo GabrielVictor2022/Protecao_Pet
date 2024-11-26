@@ -32,7 +32,7 @@ Este projeto visa mapear áreas de risco para o abandono de animais na cidade de
    git clone https://github.com/seuusuario/protecao-pet.git
    cd protecao-pet
 
-##Próximas Etapas
+## Próximas Etapas
  Adicionar filtros adicionais para os dados de denúncias.
  Melhorar a exibição dos dados no mapa.
  Implementar lógica para inferência de risco com base em algoritmos de ML.
