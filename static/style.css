@@ -1,0 +1,348 @@
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+    }
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+    }
+    .main {
+        height: 100%;
+        width: 100%;
+    }
+    header {
+        padding-left: 10%;
+        padding-right: 10%;
+        height: 10%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    header h1 {
+        letter-spacing: 2px;
+        font-size: 28px;
+        text-transform: capitalize;
+        font-weight: 700;
+    }
+    h1 span {
+        color: rgb(241, 159, 6);
+        text-transform: capitalize;
+    }
+    nav {
+        display: flex;
+        gap: 50px;
+
+        font-size: 17px;
+    }
+    nav a {
+        color: black;
+        text-decoration: none;
+        text-transform: capitalize;
+        font-weight: 600;
+        transition: .2s;
+    }
+    nav a:hover{
+        text-decoration: underline;
+        font-weight: 600;
+        /* transition-delay: .3s; */
+    
+    }
+    header button{
+        font-size: 17px;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 10px;
+        background-color: rgb(241, 159, 6);
+        color:white;
+        cursor: pointer;
+        text-transform: capitalize;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 600;
+    }
+    header button:hover{
+        background-color: white;
+        color: rgb(235, 162, 5);
+        border: 1px solid gray;
+    }
+    .main .para{
+        position: absolute;
+        top: 17%;
+        left: 15%;
+        font-size: 19px;
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+    .main .para span{
+        
+        font-size: 30px;
+        font-weight: 900;
+    }
+    .txt{
+        position: absolute;
+        top: 25%;
+        left: 15%;
+        height: 400px;
+        width: 400px;
+        /* background-color: blueviolet; */
+    }
+    .txt h3{
+        line-height: 60px;
+        font-size: 50px;
+        text-transform: capitalize;
+        font-family: gilroy;
+        font-weight: 900;
+        letter-spacing: 1px;
+    }
+    .txt h3 span{
+        color: rgb(241, 159, 6);
+    }
+    .txt p{
+        margin-top: 15px;
+        font-size: 18px;
+        width: 100%;
+        letter-spacing: 1px;
+    }
+    .txt button{
+        cursor: pointer;
+        margin-top: 30px;
+        font-size: 18px;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        padding: 10px 20px;
+        border: none;
+    border-radius: 10px;
+    }
+    .txt .btn1{
+        color: #fff;
+        background-color:rgb(241, 159, 6);
+    }
+    .txt .btn1:hover{
+        color: rgb(255, 170, 13);
+        background-color:rgb(158, 156, 153);
+    }
+    .txt .btn1 a{
+        text-decoration: none;
+        color: #fff;
+    }
+    .box{
+        margin: 20px;
+        height: 350px;
+        width: 230px;
+        background-color: rgb(241, 159, 6);
+        border-radius: 450px;
+    }
+    .a{
+        position: absolute;
+        top: 15%;
+        right: 20%;
+        background-image: url(https://media.istockphoto.com/id/1435010849/photo/labrador-retriever-dog-panting-and-ginger-cat-sitting-in-front-of-dark-yellow-background.jpg?b=1&s=170667a&w=0&k=20&c=Rr2nJh68FjKPZKvB6VPwnCHT4QEOZR9g_Xh7OxbMIcc=);
+        background-position: center;
+        background-size: cover;
+    }
+    .b{
+        background-position: center;
+        background-size: cover;
+        background-image: url(https://images.unsplash.com/photo-1506891536236-3e07892564b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDR8fGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60);
+        position: absolute;
+        bottom: -10px;
+        right: 1.5%;
+    }
+    h4{
+        font-size: 15px;
+        position: absolute;
+        bottom: 10px;
+        left: 45%;
+        text-transform: capitalize;
+        letter-spacing: 3px;
+        text-align: center;
+        font-weight: 500;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+    
+    h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin: 20px 0;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    
+    form {
+        max-width: 600px;
+        margin: 30px auto;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    
+    form label {
+        font-size: 1.2rem;
+        color: #555;
+        font-weight: bold;
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+    
+    form input[type="file"] {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        background-color: #f9f9f9;
+    }
+    
+    form button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #fff;
+        background-color: #f19f06;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease-in-out;
+    }
+    
+    form button:hover {
+        background-color: #e08e05;
+    }
+
+    p {
+        text-align: center;
+        margin: 20px auto;
+        font-size: 1.1rem; /* Um pouco maior para melhorar a legibilidade */
+        line-height: 1.8; /* Aumenta o espaçamento entre linhas */
+        color: #333; /* Cor escura, mas não preta, para suavizar a leitura */
+        max-width: 800px; /* Limita a largura para textos longos */
+        padding: 10px; /* Espaçamento interno */
+        
+    }
+
+    .index{
+        text-align: left;
+    }
+    
+    p[style="color: red;"] {
+        color: #d9534f;
+        font-weight: bold;
+    }
+    
+    /* Resultados */
+    h2 {
+        text-align: center;
+        font-size: 1.8rem;
+        color: rgb(241, 159, 6);
+    }
+    
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 20px auto;
+        max-width: 600px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    ul li {
+        font-size: 1.2rem;
+        margin: 10px 0;
+        color: #555;
+    }
+    
+    div[style*="background-color"] {
+        margin: 20px auto;
+        width: 50px;
+        height: 50px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        display: block;
+    }
+    
+    /* Link para navegação */
+    a {
+        display: block;
+        text-align: center;
+        font-size: 1.1rem;
+        color: #f19f06;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    /* Mapa */
+#map {
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    border: 2px solid #f19f06;
+}
+
+/* Gráfico */
+canvas {
+    display: block;
+    margin: 20px auto;
+    max-width: 90%;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f19f06;
+}
+
+/* Tooltip do mapa */
+.leaflet-popup-content {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    text-transform: capitalize;
+}
+
+/* Botões do mapa */
+.leaflet-control {
+    font-size: 0.9rem;
+}
+
+/* Barra de Zoom do Leaflet */
+.leaflet-control-zoom {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.leaflet-control-zoom a {
+    color: #f19f06;
+    font-weight: bold;
+}
+
+.leaflet-control-zoom a:hover {
+    color: #e08e05;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Gráfico */
+.chart-same-size {
+    width: 60%; 
+    height: 500px; 
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f19f06;
+}
+
+

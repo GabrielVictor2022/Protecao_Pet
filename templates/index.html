@@ -3,25 +3,29 @@
 <head>
     <title>Proteção Pet</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Classificação de Risco de Abandono</h1>
-    <canvas id="riskChart" width="400" height="200"></canvas>
-    <script>
-        const ctx = document.getElementById('riskChart').getContext('2d');
-        const chart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ["Boa Viagem", "Casa Amarela", "Tamarineira", "Ibura"],
-                datasets: [{
-                    label: 'Denúncias',
-                    data: [20, 60, 30, 80],
-                    backgroundColor: ['green', 'red', 'orange', 'red']
-                }]
-            }
-        });
-    </script>
-    <a href="/map">Ver Mapa</a>
-    <a href="/recognize">Reconhecer cachorro</a>
+    <div class="main">
+        <header>
+        <h1>Proteção<span>Pet</span></h1>
+        <nav>
+            <a href="/index">home</a>
+            <a href="/recognize">Verificar</a>
+            <a href="/map">Mapa</a>
+            <a href="/about">Sobre Nós</a>
+        </nav>
+        </header>
+        <p class="para"> <span>|</span>Proteção Pet Home</p>
+        <div class="txt">
+        <h3>Tecnologia Para <br><span>Encontrar </span> <br> seu Amigo!</h3>
+        <p class="index">Unindo tecnologia e cuidado para ajudar a localizar e proteger animais perdidos. Juntos, podemos trazer seu amigo de volta para casa!</p>
+        <button class="btn1"><a href="/recognize">Encontrar Agora</a></button>
+
+        </div>
+        <div class="box a"></div>
+        <div class="box b"></div>
+    </div>
 </body>
 </html>

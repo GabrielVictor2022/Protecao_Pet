@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        nav a:hover {
+            color: #333;
+        }
+
+        .about-section {
+            text-align: center;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            color: #f19f06;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.8;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .team-section {
+            padding: 40px 10%;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .team-section h3 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .team-members {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .team-member {
+            width: 200px;
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 100%;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member h4 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .team-member p {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #f19f06;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Proteção<span>Pet</span></h1>
+        <nav>
+            <a href="/index">Home</a>
+            <a href="/recognize">Identificar</a>
+            <a href="/map">Mapa</a>
+            <a href="/about">Sobre Nós</a>
+        </nav>
+    </header>
+
+    <section class="about-section">
+        <h2>Sobre Nós</h2>
+        <p>
+            Bem-vindo à ProteçãoPet! Nossa missão é ajudar animais perdidos a encontrarem seus lares. 
+            Combinando tecnologia de ponta e amor pelos animais, criamos uma plataforma que conecta pessoas 
+            e salva vidas. Junte-se a nós nessa jornada de cuidado e responsabilidade.
+        </p>
+    </section>
+
+    <section class="team-section">
+        <div class="team-members">
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/dog1.jpg') }}" alt="dog">
+            </div>
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/dog2.jpg') }}" alt="dog">               
+            </div>
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/dog3.jpg') }}" alt="dog">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 ProteçãoPet. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -4,15 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa de Risco</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h1>Mapa de Risco de Abandono de Animais</h1>
+    <header>
+        <h1>Proteção<span>Pet</span></h1>
+        <nav>
+            <a href="/index">Home</a>
+            <a href="/recognize">Verificar</a>
+            <a href="/map">Mapa</a>
+            <a href="/about">Sobre Nós</a>
+        </nav>
+    </header>
+    <h1><span>Mapa de Risco de Abandono de Animais</span></h1>
+
+    <!-- Texto explicativo -->
+    <section>
+        <p class="mapa">
+            Este mapa interativo exibe as áreas de Recife classificadas por risco de abandono de animais, 
+            com base no número de denúncias recebidas e na renda média dos bairros. 
+            Os bairros são marcados com círculos coloridos, representando o nível de risco:
+        </p>
+        <ul>
+            <li><span style="color: red;">Vermelho:</span> Alto risco</li>
+            <li><span style="color: orange;">Laranja:</span> Médio risco</li>
+            <li><span style="color: green;">Verde:</span> Baixo risco</li>
+        </ul>
+    </section>
+
     <div id="map" style="height: 500px;"></div>
     <h2>Denúncias por Bairro</h2>
-    <canvas id="graficoDenuncias" width="400" height="200"></canvas>
+
+    <p class="mapa">
+        O gráfico abaixo apresenta o número de denúncias por bairro, permitindo uma visão detalhada 
+        dos locais com maior incidência de casos. Navegue pelo mapa e clique nos marcadores para obter mais 
+        informações sobre cada bairro.
+    </p>
+    <canvas id="riskChart" class="chart-same-size" width="400" height="200"></canvas>
 
     <script>
         // Inicializa o mapa
@@ -27,41 +59,73 @@
         const bairros = {{ data | tojson | safe }};
         const graficoDados = {{ grafico_dados | tojson | safe }};
 
-        // Adiciona os marcadores no mapa
+        // Função para definir a cor do marcador com base no risco
+        function getMarkerColor(risco) {
+            if (risco === 'Alto') return 'red';
+            if (risco === 'Médio') return 'orange';
+            return 'green';
+        }
+
+        // Adiciona os marcadores no mapa com cor baseada no risco
         bairros.forEach((bairro) => {
-            L.marker([bairro.lat, bairro.lng])
-                .addTo(map)
-                .bindPopup(`${bairro.bairro}: ${bairro.risco} Risco`);
+            const color = getMarkerColor(bairro.risco);
+
+            const marker = L.circleMarker([bairro.lat, bairro.lng], {
+                color: color,
+                fillColor: color,
+                fillOpacity: 0.5,
+                radius: 10
+            }).addTo(map);
+
+            marker.bindPopup(`${bairro.bairro}: ${bairro.risco} Risco`);
         });
 
-        // Dados para o gráfico de denúncias
+        // Dados para o gráfico
         const labels = graficoDados.map(item => item.bairro);
         const data = graficoDados.map(item => item.denuncias);
+        const colors = graficoDados.map(item => {
+            if (item.risco === "Alto") return "red";
+            if (item.risco === "Médio") return "orange";
+            return "green";
+        });
 
         // Configuração do gráfico usando Chart.js
-        const ctx = document.getElementById('graficoDenuncias').getContext('2d');
+        const ctx = document.getElementById('riskChart').getContext('2d');
         new Chart(ctx, {
-            
             type: 'bar',
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Número de Denúncias',
+                    label: 'Denúncias por Bairro',
                     data: data,
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
+                    backgroundColor: colors,
                 }]
             },
             options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            color: '#333',
+                        }
+                    }
+                },
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#333',
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#333',
+                        }
                     }
                 }
             }
         });
-        
     </script>
 </body>
 </html>
